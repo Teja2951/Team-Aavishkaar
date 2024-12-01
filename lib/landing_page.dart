@@ -1,3 +1,4 @@
+import 'package:aavishkaar/bookmarks_screen.dart';
 import 'package:aavishkaar/chatbot2.dart';
 import 'package:aavishkaar/streak_service.dart';
 import 'package:animate_gradient/animate_gradient.dart';
@@ -267,52 +268,85 @@ class _LandingPageState extends State<LandingPage> {
       // Streak icon at the top-right
       Positioned(
         top: 25,
-        right: 0,
+        right: -20,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: GestureDetector(
-            onTap: () {
-              Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) =>  ProfileScreen(),
-          ),
-        );
-            },
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-  const Icon(
-    Icons.local_fire_department, // Fire icon
-    color: Colors.orangeAccent,
-    size: 36,
-  ),
-  const SizedBox(width: 4),
-  // FutureBuilder to fetch and display streak count
-  FutureBuilder<int>(
-    future: _fetchStreak(), // Fetch streak count asynchronously
-    builder: (context, snapshot) {
-      if (snapshot.connectionState == ConnectionState.waiting) {
-        return const CircularProgressIndicator();
-      } else if (snapshot.hasError) {
-        return Text('Error: ${snapshot.error}');
-      } else if (snapshot.hasData) {
-        return Text(
-          '${snapshot.data}', // Display the fetched streak count
-          style: const TextStyle(
-            fontSize: 25,
-            fontWeight: FontWeight.bold,
-            color: Colors.orangeAccent,
-          ),
-        );
-      } else {
-        return const Text('N/A.');
-      }
-    },
-  ),
-],
+          child: Row(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>  ProfileScreen(),
+              ),
+                      );
+                },
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                const Icon(
+                  Icons.local_fire_department, // Fire icon
+                  color: Colors.orangeAccent,
+                  size: 36,
+                ),
+                const SizedBox(width: 4),
+                // FutureBuilder to fetch and display streak count
+                FutureBuilder<int>(
+                  future: _fetchStreak(), // Fetch streak count asynchronously
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const CircularProgressIndicator();
+                    } else if (snapshot.hasError) {
+                      return Text('Error: ${snapshot.error}');
+                    } else if (snapshot.hasData) {
+                      return Text(
+              '${snapshot.data}', // Display the fetched streak count
+              style: const TextStyle(
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Colors.orangeAccent,
+              ),
+                      );
+                    } else {
+                      return const Text('N/A.');
+                    }
+                  },
+                ),
+              ],
+              
+                ),
+              ),
 
-            ),
+                SizedBox(width: 20,),
+
+
+               GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => BookmarksScreen(),
+        ),
+      );
+    },
+    child: Container(
+      height: 40, // Same height as the Streaks button
+      width: 40,  // Same width as the Streaks button
+      decoration: BoxDecoration(
+        //color: Colors.blueAccent, // Matching or complementary color
+        borderRadius: BorderRadius.circular(12), // Rounded corners for consistency
+        
+      ),
+      child: Icon(
+        Icons.bookmark_rounded,
+        color: Colors.orangeAccent, // White for better contrast
+        size: 30, // Appropriately sized icon
+      ),
+    ),
+  ),
+
+            ],
           ),
         ),
       ),

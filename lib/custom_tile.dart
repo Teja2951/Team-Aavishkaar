@@ -9,6 +9,7 @@ class CustomArticleCard extends StatelessWidget {
   final String part;
   final String link;
   final String type;
+  final bool isCompleted;
 
   const CustomArticleCard({
     Key? key,
@@ -19,6 +20,7 @@ class CustomArticleCard extends StatelessWidget {
     required this.part,
     required this.link,
     required this.type,
+    required this.isCompleted,
   }) : super(key: key);
 
   @override
@@ -56,13 +58,20 @@ class CustomArticleCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               // Article Number (Large Text)
-              Text(
-                'Article $articleNo',
-                style: TextStyle(
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white, // Bright text color
-                ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Article $articleNo',
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white, // Bright text color
+                    ),
+                  ),
+
+                  (isCompleted)? Icon(Icons.bookmark_added) : Icon(Icons.bookmark_outline_outlined),
+                ],
               ),
               const SizedBox(height: 10),
               

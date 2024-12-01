@@ -64,6 +64,7 @@ class _StreakWidgetState extends State<StreakWidget> {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16.0),
+      width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.indigoAccent,
         borderRadius: BorderRadius.circular(20),

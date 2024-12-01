@@ -12,6 +12,9 @@ class _Chatbot2ScreenState extends State<Chatbot2Screen> {
   String _response = "";
   bool _isLoading = false;
 
+  // Replace with your actual API key
+  static const String _apiKey = "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";
+  static const String _endpoint = "https://api.openai.com/v1/chat/completions";
 
   Future<void> _sendMessage(String message) async {
     setState(() {

@@ -122,6 +122,7 @@ class _Article6PageState extends State<Article6Page> {
                         part: filteredArticles[index]['part'] ?? '404',
                         link: filteredArticles[index]['article_link'],
                         type: filteredArticles[index]['type'],
+                        isCompleted: filteredArticles[index]['is_Completed'], // add the supabase columns
                       );
                     },
                   );

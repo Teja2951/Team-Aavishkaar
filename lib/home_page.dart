@@ -13,10 +13,11 @@ class _HomePageState extends State<HomePage> {
   final SupabaseClient supabase = Supabase.instance.client;
   TextEditingController searchController = TextEditingController();
   String searchTerm = '';
-
+  
   Stream<List<Map<String, dynamic>>> fetchArticlesStream() {
     return supabase.from('articles').stream(primaryKey: ['id']);
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -119,6 +120,7 @@ class _HomePageState extends State<HomePage> {
                         part: filteredArticles[index]['part'] ?? '404',
                         link: filteredArticles[index]['article_link'],
                         type: filteredArticles[index]['type'],
+                        isCompleted: filteredArticles[index]['is_Completed'],
                       );
                     },
                   );
