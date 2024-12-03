@@ -88,14 +88,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Wrap(
-                  spacing: 16,
+                  spacing: 10,
                   runSpacing: 16,
                   children: [
                     // Progress Card
                     _buildDashboardCard(
                       title: "Progress",
                       content: CircularPercentIndicator(
-                        radius: 70.0,
+                        radius: 50.0,
                         lineWidth: 10.0,
                         animation: true,
                         percent: progress,
@@ -162,8 +162,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
   // Method to build Dashboard Cards with consistent style and custom colors
   Widget _buildDashboardCard({required String title, required Widget content, required Color cardColor}) {
     return Container(
-      height: 250,
-      width: 180,
+      height: 200,
+      width: 170,
       decoration: BoxDecoration(
         color: cardColor, // Use passed card color
         borderRadius: BorderRadius.circular(16),

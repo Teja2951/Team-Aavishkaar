@@ -51,6 +51,8 @@ dependencies:
   dash_chat_2: ^0.0.21
   animate_gradient: ^0.0.3
   percent_indicator: ^4.2.2
+  animated_gradient: 
+  flutter_advanced_drawer:
 
 dev_dependencies:
   flutter_test:

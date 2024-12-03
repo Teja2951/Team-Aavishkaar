@@ -1,5 +1,6 @@
 import 'package:aavishkaar/auth_service.dart';
 import 'package:aavishkaar/custom_tile.dart';
+import 'package:aavishkaar/landing_page.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -24,7 +25,10 @@ class _Article6PageState extends State<Article6Page> {
         elevation: 5,
         leading: IconButton(
           icon: Icon(Icons.arrow_back, size: 28),
-          onPressed: () => Navigator.pop(context),
+          onPressed: () =>Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LandingPage()),
+            )
         ),
         title: Text(
           "Part 6",

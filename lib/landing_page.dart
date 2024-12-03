@@ -1,6 +1,9 @@
+import 'package:aavishkaar/advance_drawer_content.dart';
 import 'package:aavishkaar/bookmarks_screen.dart';
 import 'package:aavishkaar/chatbot2.dart';
+import 'package:aavishkaar/news_intro.dart';
 import 'package:aavishkaar/streak_service.dart';
+import 'package:aavishkaar/timeline.dart';
 import 'package:animate_gradient/animate_gradient.dart';
 import 'package:aavishkaar/article6_page.dart';
 import 'package:aavishkaar/auth_service.dart';
@@ -10,6 +13,7 @@ import 'package:aavishkaar/pages/games_screen.dart';
 import 'package:aavishkaar/home_page.dart';
 import 'package:aavishkaar/pages/settings_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_advanced_drawer/flutter_advanced_drawer.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -21,6 +25,7 @@ class LandingPage extends StatefulWidget {
 }
 
 class _LandingPageState extends State<LandingPage> {
+  final AdvancedDrawerController _advancedDrawerController = AdvancedDrawerController();
   int _selectedIndex = 0;
   int _streakCount = 0;
   StreakService _helper = StreakService();
@@ -28,6 +33,7 @@ class _LandingPageState extends State<LandingPage> {
   final Map<String, Widget> articleScreens = {
     "Part 5": HomePage(),
     "Part 6": Article6Page(),
+    'Timeline': ConstitutionTimelineScreen(),
   };
 
   late final List<Widget> _screens;
@@ -38,7 +44,8 @@ class _LandingPageState extends State<LandingPage> {
       HomeScreen(articleScreens: articleScreens),
       GamesScreen(),
       OneMinuteRead(),
-      EventsScreen(),
+      //NewsIntro(),
+      //EventsScreen(),
       ProfileScreen(),
     ];
   }
@@ -49,49 +56,86 @@ class _LandingPageState extends State<LandingPage> {
   }
 
   void _onItemTapped(int index) {
+  if (index == 3) {
+    // If the last button (index 3) is tapped, open the AdvancedDrawer
+    _advancedDrawerController.showDrawer();
+  } else {
+    // Otherwise, switch screens as usual
     setState(() {
       _selectedIndex = index;
     });
   }
+}
 
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: AnimateGradient(
-        primaryColors: const [
-          Colors.pink,
-          Colors.pinkAccent,
-          Colors.white,
-        ],
-        secondaryColors: const [
-          Colors.blue,
-          Colors.blueAccent,
-          Colors.white,
-        ],
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (_selectedIndex == 0) ...[
-                  _buildGreetingSection(),
-                  const SizedBox(height: 20),
+    return AdvancedDrawer(
+      controller: _advancedDrawerController,
+      rtlOpening: true,
+      drawer: AdvancedDrawerContent(),
+      childDecoration: BoxDecoration(
+    borderRadius: BorderRadius.circular(30), // Adjust corner radius
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black26,
+        blurRadius: 10,
+        offset: Offset(0, 5),
+      ),
+    ],
+  ),
+  backdrop: Container(
+    decoration: BoxDecoration(
+      gradient: LinearGradient(
+  colors: [
+    Color(0xFFFF0000), // Bright Red
+    Color(0xFFFF1493), // Deep Pink
+  ],
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
+)
+    ),
+  ),
+
+      child: Scaffold(
+        body: AnimateGradient(
+          primaryColors: const [
+            Colors.pink,
+            Colors.pinkAccent,
+            Colors.white,
+          ],
+          secondaryColors: const [
+            Colors.blue,
+            Colors.blueAccent,
+            Colors.white,
+          ],
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (_selectedIndex == 0) ...[
+                    _buildGreetingSection(),
+                    const SizedBox(height: 20),
+                  ],
+      
+                  if(_selectedIndex != 3) ...{
+                  _screens[_selectedIndex],
+                  }
                 ],
-                _screens[_selectedIndex],
-              ],
+              ),
             ),
           ),
         ),
-      ),
-      bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.only(
-          topLeft: Radius.circular(30),
-          topRight: Radius.circular(30),
-        ),
-        child: BottomAppBar(
-          shape: const CircularNotchedRectangle(),
+       bottomNavigationBar: Container(
+        margin: const EdgeInsets.only(left: 10, right: 10, bottom: 10), // Margins for the bar
+        child: ClipRRect(
+      borderRadius: BorderRadius.circular(20),
+      child: BottomAppBar(
+        color: Colors.blue,
+        child: SizedBox(
+          height: 50, // Adjust height as needed
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Row(
@@ -99,51 +143,59 @@ class _LandingPageState extends State<LandingPage> {
               children: [
                 buildNavBarItem(Icons.home, 'Home', 0),
                 buildNavBarItem(Icons.gamepad, 'Games', 1),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 buildNavBarItem(Icons.new_label, 'OneM', 2),
-                buildNavBarItem(Icons.event, 'Events', 3),
+                buildNavBarItem(Icons.more_horiz_rounded, 'More', 3),
               ],
             ),
           ),
         ),
       ),
-      floatingActionButton: ClipOval(
-        child: Material(
-          color: const Color.fromARGB(255, 81, 0, 255),
-          elevation: 10,
-          child: InkWell(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Chatbot2Screen()),
-              );
-            },
-            child: SizedBox(
-              width: 60,
-              height: 60,
-              child: Icon(Icons.mic, size: 28, color: Colors.white),
+        ),
+      ),
+      
+      
+      
+        floatingActionButton: ClipOval(
+          child: Material(
+            color: const Color.fromARGB(255, 81, 0, 255),
+            elevation: 10,
+            child: InkWell(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Chatbot2Screen()),
+                );
+              },
+              child: SizedBox(
+                width: 60,
+                height: 60,
+                child: Icon(Icons.mic, size: 28, color: Colors.white),
+              ),
             ),
           ),
         ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 
   Widget buildNavBarItem(IconData icon, String label, int index) {
     return InkWell(
+      
       onTap: () => _onItemTapped(index),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           Icon(
             icon,
+            size: 30,
             color: _selectedIndex == index ? Colors.orange : Colors.black,
           ),
           Text(
             label,
             style: TextStyle(
-                color: _selectedIndex == index ? Colors.orange : Colors.black),
+                color: _selectedIndex == index ? Colors.orange : Colors.black,),
           ),
         ],
       ),
@@ -245,7 +297,7 @@ class _LandingPageState extends State<LandingPage> {
                         ),
                       ),
                       const Text(
-                        'What U wanna learn....',
+                        'What do you want to learn today?',
                         style: TextStyle(color: Colors.white),
                       ),
                     ],
@@ -361,26 +413,28 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
+    return Wrap(
+      children: [
+        Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _buildGridSection(
             context,
             title: 'Explore Constitution',
             cards: [
+              _buildPartCard(context, "Preamble", Icons.library_books,
+                  Colors.orangeAccent, Colors.amber),
+              _buildPartCard(context, "Timeline", Icons.architecture_sharp,
+                  Colors.purpleAccent, Colors.deepPurple),
               _buildPartCard(context, "Part 5", Icons.book, Colors.blueAccent,
                   Colors.lightBlue),
               _buildPartCard(context, "Part 6", Icons.gavel,
                   Colors.greenAccent, Colors.lightGreen),
-              _buildPartCard(context, "Preamble", Icons.library_books,
-                  Colors.orangeAccent, Colors.amber),
-              _buildPartCard(context, "Amendments", Icons.account_balance,
-                  Colors.purpleAccent, Colors.deepPurple),
             ],
           ),
         ],
       ),
+      ],
     );
   }
 
@@ -460,6 +514,6 @@ class EventsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return AdvancedDrawer(child: Scaffold(), drawer: SafeArea(child: Column(children: [],)));
   }
 }

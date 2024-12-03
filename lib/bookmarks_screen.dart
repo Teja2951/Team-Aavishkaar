@@ -37,6 +37,7 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
     final List<Map<String, dynamic>> part6Bookmarks =
         List<Map<String, dynamic>>.from(part6Response);
 
+
     return [...part5Bookmarks, ...part6Bookmarks];
   } catch (e) {
     print('Error fetching bookmarked articles: $e');
@@ -90,9 +91,9 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
                     MaterialPageRoute(
                       builder: (context) => ArticleDisplay(
                         article_no: article['article_no'],
-                        article_og: article['original_text'] ?? '',
-                        article_st: article['simplified_text'] ?? '',
-                        article_yt: article['youtube_url'] ?? '',
+                        article_og: article['article_og_text'] ?? '',
+                        article_st: article['article_sim_txt'] ?? '',
+                        article_yt: article['article_link'] ?? '',
                       ),
                     ),
                   );

@@ -57,7 +57,11 @@ class _StoryScreenState extends State<StoryScreen> {
     );
 
     final prompt =
-        'Create a $storyType story of $length length based on the following article of the Indian Constitution: $text. '
+        'create a Indian Constitutional based story on the article $text so that the following article is easily understandable after reading this story keep the english simple'
+        'story type: $storyType'
+        'story length: $length'
+        'also after the story ends write a small summary of the same article'
+        //'Create a $storyType story of $length length based on the following article of the Indian Constitution: $text. after reading the story one should be able to understand the whole article $text of tht indian constitution and add a summary of that article at the last'
         'Also, generate a concise image prompt which should state whats happening in the story like seeing the funny humorous image u can relate to the sstory, surrounded by *** at the start, describing a suitable image for this story.';
 
     setState(() {
