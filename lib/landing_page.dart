@@ -164,7 +164,7 @@ class _LandingPageState extends State<LandingPage> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => Chatbot2Screen()),
+                  MaterialPageRoute(builder: (context) => Chatbot()),
                 );
               },
               child: SizedBox(

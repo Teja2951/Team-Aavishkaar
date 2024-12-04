@@ -1,5 +1,6 @@
 import 'package:aavishkaar/Emoji_game_screen.dart';
-import 'package:aavishkaar/pages/wordle_game.dart';
+import 'package:aavishkaar/Timeline/timeline_intro_screen.dart';
+import 'package:aavishkaar/pages/timeline_screen.dart';
 import 'package:aavishkaar/rights_and_duties.dart';
 import 'package:aavishkaar/quiz_materials/setup.dart';
 import 'package:aavishkaar/spin_wheel_game.dart';
@@ -20,9 +21,8 @@ class HomeScreen extends StatelessWidget {
     {'name': 'Emoji Game', 'icon': Icons.emoji_emotions, 'screen': EmojiGameScreen()}, 
     {'name': 'True/False', 'icon': Icons.swipe, 'screen': TrueFalseGame()},
     {'name': 'Rights / Duties', 'icon': Icons.extension, 'screen': RightsOrDutiesGame()},
-    {'name': 'Wordle', 'icon': Icons.wordpress_sharp, 'screen': WordleGame()},
+    {'name': 'Timeline (** for temp)', 'icon': Icons.wordpress_sharp, 'screen': TimelineScreen()},
 
-    // Add more games as needed
   ];
 
   @override
@@ -46,14 +46,6 @@ class HomeScreen extends StatelessWidget {
                 Navigator.push(
                   context,
                   MaterialPageRoute(builder: (context) => game['screen']),
-                );
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text(
-                      '${game['name']} screen coming soon!',
-                      style: GoogleFonts.lato(color: Colors.black, fontSize: 24),
-                    ),
-                  ),
                 );
               },
               child: Card(

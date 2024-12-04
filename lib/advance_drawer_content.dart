@@ -1,3 +1,4 @@
+import 'package:aavishkaar/Bills/bill_list_page.dart';
 import 'package:aavishkaar/article6_page.dart';
 import 'package:aavishkaar/landing_page.dart';
 import 'package:aavishkaar/streak_widget.dart';
@@ -33,7 +34,7 @@ class _AdvancedDrawerContentState extends State<AdvancedDrawerContent> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
 
-            SizedBox(height: 60,),
+            SizedBox(height: 20,),
             // Header
             Container(
               padding: EdgeInsets.all(16),
@@ -87,7 +88,7 @@ class _AdvancedDrawerContentState extends State<AdvancedDrawerContent> {
               child: ListView(
                 children: [
                   _buildListTile(Icons.home, 'Home',LandingPage()),
-                  _buildListTile(Icons.book_online_rounded, 'StoryMode',LandingPage()),
+                  _buildListTile(Icons.book_online_rounded, 'Billl',BillsListScreen()),
                   _buildListTile(Icons.sports, 'Contests',LandingPage()),
                   _buildListTile(Icons.event, 'Events',LandingPage()),
                   _buildListTile(Icons.search, 'Resources',Article6Page()),
@@ -198,7 +199,7 @@ class _AdvancedDrawerContentState extends State<AdvancedDrawerContent> {
         ),
         onTap: () {
           Navigator.of(context).pop();
-            Navigator.pushReplacement(
+            Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => screen),
             );

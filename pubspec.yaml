@@ -53,6 +53,8 @@ dependencies:
   percent_indicator: ^4.2.2
   animated_gradient: 
   flutter_advanced_drawer:
+  timeline_tile: ^2.0.0
+  animated_text_kit: ^4.2.2
 
 dev_dependencies:
   flutter_test:
