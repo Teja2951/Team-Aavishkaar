@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:aavishkaar/quiz_materials/quiz.dart';
+import 'package:aavishkaar/Game_Screens/quiz_materials/quiz.dart';
 
 class TriviaSetupScreen extends StatefulWidget {
   const TriviaSetupScreen({super.key});

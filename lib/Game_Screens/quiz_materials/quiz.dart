@@ -1,8 +1,8 @@
 import 'package:aavishkaar/landing_page.dart';
-import 'package:aavishkaar/pages/games_screen.dart';
-import 'package:aavishkaar/quiz_materials/models/answer_button.dart';
-import 'package:aavishkaar/quiz_materials/models/questions.dart';
-import 'package:aavishkaar/quiz_materials/models/quiz_question.dart';
+import 'package:aavishkaar/Game_Screens/games_screen.dart';
+import 'package:aavishkaar/Game_Screens/quiz_materials/models/answer_button.dart';
+import 'package:aavishkaar/Game_Screens/quiz_materials/models/questions.dart';
+import 'package:aavishkaar/Game_Screens/quiz_materials/models/quiz_question.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

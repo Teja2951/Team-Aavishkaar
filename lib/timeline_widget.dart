@@ -1,4 +1,4 @@
-import 'package:aavishkaar/pages/constitutional_event.dart';
+import 'package:aavishkaar/constitutional_event.dart';
 import 'package:flutter/material.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 

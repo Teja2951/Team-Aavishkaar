@@ -1,5 +1,5 @@
-import 'package:aavishkaar/auth_service.dart';
-import 'package:aavishkaar/custom_tile.dart';
+import 'package:aavishkaar/Auth/auth_service.dart';
+import 'package:aavishkaar/Articles/Display/custom_tile.dart';
 import 'package:aavishkaar/landing_page.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';

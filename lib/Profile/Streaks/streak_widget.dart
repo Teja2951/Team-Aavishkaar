@@ -1,6 +1,9 @@
-import 'package:aavishkaar/streak_service.dart';
+import 'package:aavishkaar/Profile/Streaks/streak_service.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
+
+// Make this a future rather than set state to update on change
 
 class StreakWidget extends StatefulWidget {
   const StreakWidget({Key? key}) : super(key: key);

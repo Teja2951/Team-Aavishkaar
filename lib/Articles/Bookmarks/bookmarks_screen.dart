@@ -1,4 +1,4 @@
-import 'package:aavishkaar/article_display.dart';
+import 'package:aavishkaar/Articles/Display/article_display.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 

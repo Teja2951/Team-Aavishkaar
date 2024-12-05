@@ -1,4 +1,4 @@
-import 'package:aavishkaar/pages/constitutional_event.dart';
+import 'package:aavishkaar/constitutional_event.dart';
 
 final List<ConstitutionEvent> constitutionEvents = [
   const ConstitutionEvent(

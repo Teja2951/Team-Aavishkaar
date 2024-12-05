@@ -1,5 +1,5 @@
-import 'package:aavishkaar/custom_splash.dart';
-import 'package:aavishkaar/story_screen.dart';
+import 'package:aavishkaar/Strory/custom_splash.dart';
+import 'package:aavishkaar/Strory/story_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
@@ -117,35 +117,82 @@ class _ArticleDisplayState extends State<ArticleDisplay> {
 
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 70,
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [Colors.blueAccent, Colors.purpleAccent],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-          ),
-        ),
         title: Text(
           'Article ${widget.article_no}',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 22,
-            letterSpacing: 1.2,
-            color: Colors.white,
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
         ),
+        backgroundColor: Colors.blueAccent,
         centerTitle: true,
-        actions: [
-          // Bookmark and Completion status buttons (same as before)
-        ],
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            bottom: Radius.circular(20),
-          ),
-        ),
+  toolbarHeight: 70, // Increase height for a bolder look
+  flexibleSpace: Container(
+    decoration: BoxDecoration(
+      gradient: LinearGradient(
+        colors: [Colors.blueAccent, Colors.purpleAccent],
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
       ),
+    ),
+  ),
+  actions: [
+    // Bookmark Button
+    FutureBuilder<bool>(
+      future: getBookmarkStatus(widget.article_no.toString()),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return IconButton(
+            icon: Icon(Icons.bookmark),
+            onPressed: null, // Disable button while loading
+          );
+        }
+        final isBookmarked = snapshot.data ?? false;
+        return IconButton(
+          icon: Icon(
+            isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+            color: isBookmarked ? Colors.yellow : Colors.white,
+          ),
+          onPressed: () async {
+            await toggleBookmarkStatus(widget.article_no.toString(), isBookmarked);
+            setState(() {}); // Refresh UI
+          },
+        );
+      },
+    ),
+    // Mark as Completed Button
+    FutureBuilder<bool>(
+      future: getCurrentStatus(widget.article_no.toString()),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return IconButton(
+            icon: Icon(Icons.check_box_outline_blank),
+            onPressed: null, // Disable button while loading
+          );
+        }
+        final isCompleted = snapshot.data ?? false;
+        return IconButton(
+          icon: Icon(
+            isCompleted ? Icons.check_box : Icons.check_box_outline_blank,
+            color: isCompleted ? Colors.greenAccent : Colors.white,
+          ),
+          onPressed: () async {
+            await toggleCompletionStatus(widget.article_no.toString(), isCompleted);
+            setState(() {}); // Refresh UI
+          },
+        );
+      },
+    ),
+  ],
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.vertical(
+      bottom: Radius.circular(20),
+    ),
+  ),
+),
+
+
+
+
+
+
       body: SingleChildScrollView(
         padding: EdgeInsets.all(16.0),
         child: Column(

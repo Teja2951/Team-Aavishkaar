@@ -1,7 +1,7 @@
 
 import 'dart:math';
 
-import 'package:aavishkaar/quiz_materials/models/quiz_question.dart';
+import 'package:aavishkaar/Game_Screens/quiz_materials/models/quiz_question.dart';
 
 final List<QuestionQuiz> questions = [
   QuestionQuiz(

@@ -116,7 +116,7 @@ class _ChatbotState extends State<Chatbot> {
     gemini
         .streamGenerateContent(
           question,
-          modelName:  'tunedModels/modifiedarticles-24rk5uxrc6i', // Use your fine-tuned model
+          modelName:  'tunedModels/constitutionqa-3-heh8llpv6zrw',  //'tunedModels/modifiedarticles-24rk5uxrc6i', // Use your fine-tuned model
           generationConfig: GenerationConfig(
             temperature: 1,
             topK: 40,

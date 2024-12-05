@@ -1,8 +1,8 @@
-import 'package:aavishkaar/chatbot.dart';
-import 'package:aavishkaar/streak_service.dart';
-import 'package:aavishkaar/streak_widget.dart';
+import 'package:aavishkaar/Chatbot/chatbot.dart';
+import 'package:aavishkaar/Profile/Streaks/streak_service.dart';
+import 'package:aavishkaar/Profile/Streaks/streak_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:aavishkaar/auth_service.dart';
+import 'package:aavishkaar/Auth/auth_service.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 

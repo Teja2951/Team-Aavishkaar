@@ -1,4 +1,4 @@
-import 'package:aavishkaar/auth_page.dart';
+import 'package:aavishkaar/Auth/auth_page.dart';
 import 'package:flutter/material.dart';
 
 class IntroductionScreen extends StatelessWidget {

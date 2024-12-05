@@ -1,10 +1,10 @@
-import 'package:aavishkaar/Emoji_game_screen.dart';
+import 'package:aavishkaar/Game_Screens/Emoji_game_screen.dart';
 import 'package:aavishkaar/Timeline/timeline_intro_screen.dart';
-import 'package:aavishkaar/pages/timeline_screen.dart';
-import 'package:aavishkaar/rights_and_duties.dart';
-import 'package:aavishkaar/quiz_materials/setup.dart';
-import 'package:aavishkaar/spin_wheel_game.dart';
-import 'package:aavishkaar/swipe_game.dart';
+import 'package:aavishkaar/timeline_screen.dart';
+import 'package:aavishkaar/Game_Screens/rights_and_duties.dart';
+import 'package:aavishkaar/Game_Screens/quiz_materials/setup.dart';
+import 'package:aavishkaar/Game_Screens/spin_wheel_game.dart';
+import 'package:aavishkaar/Game_Screens/swipe_game.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 

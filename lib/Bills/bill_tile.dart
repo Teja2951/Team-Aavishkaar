@@ -85,10 +85,21 @@ class BillTile extends StatelessWidget {
                 ),
               ),
               // Bookmark Icon for Completion
-              Icon(
-                isCompleted ? Icons.bookmark : Icons.bookmark_border,
-                color: isCompleted ? Colors.green : Colors.grey,
+
+              Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(40),
+                      color: isCompleted? Colors.green : Colors.red,
+                    ),
+                    height: 40,
+                    width: 100,
+                    child: isCompleted? Center(child: Text('Bill Passed')) : Center(child: Text('Pending')),
+                  )
+                ],
               ),
+              
             ],
           ),
         ),

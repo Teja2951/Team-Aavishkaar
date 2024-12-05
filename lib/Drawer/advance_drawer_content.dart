@@ -1,7 +1,7 @@
 import 'package:aavishkaar/Bills/bill_list_page.dart';
-import 'package:aavishkaar/article6_page.dart';
+import 'package:aavishkaar/Articles/Part6/article6_page.dart';
 import 'package:aavishkaar/landing_page.dart';
-import 'package:aavishkaar/streak_widget.dart';
+import 'package:aavishkaar/Profile/Streaks/streak_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 

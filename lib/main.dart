@@ -1,6 +1,6 @@
-import 'package:aavishkaar/auth_gate.dart';
-import 'package:aavishkaar/auth_page.dart';
-import 'package:aavishkaar/streak_service.dart';
+import 'package:aavishkaar/Auth/auth_gate.dart';
+import 'package:aavishkaar/Auth/auth_page.dart';
+import 'package:aavishkaar/Profile/Streaks/streak_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';

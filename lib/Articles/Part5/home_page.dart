@@ -1,4 +1,4 @@
-import 'package:aavishkaar/custom_tile.dart';
+import 'package:aavishkaar/Articles/Display/custom_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 

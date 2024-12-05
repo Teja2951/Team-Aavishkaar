@@ -1,4 +1,5 @@
 import 'package:aavishkaar/Bills/bill_detail.dart';
+import 'package:aavishkaar/landing_page.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'bill_tile.dart';
@@ -17,7 +18,18 @@ class BillsListScreen extends StatelessWidget {
         .map((event) => List<Map<String, dynamic>>.from(event));
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Bills List')),
+      appBar: AppBar(
+        title: const Text('Bills List'),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => LandingPage())
+            );
+          },
+        ),
+        ),
       body: StreamBuilder<List<Map<String, dynamic>>>(
         stream: billStream,
         builder: (context, snapshot) {

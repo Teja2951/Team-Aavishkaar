@@ -1,5 +1,5 @@
-import 'package:aavishkaar/auth_page.dart';
-import 'package:aavishkaar/home_page.dart';
+import 'package:aavishkaar/Auth/auth_page.dart';
+import 'package:aavishkaar/Articles/Part5/home_page.dart';
 import 'package:aavishkaar/landing_page.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';

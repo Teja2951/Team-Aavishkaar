@@ -1,4 +1,4 @@
-import 'package:aavishkaar/news_container.dart';
+import 'package:aavishkaar/One_minute/news_container.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
