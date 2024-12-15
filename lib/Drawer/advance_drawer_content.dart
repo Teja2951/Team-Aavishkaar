@@ -1,5 +1,6 @@
 import 'package:aavishkaar/Bills/bill_list_page.dart';
 import 'package:aavishkaar/Articles/Part6/article6_page.dart';
+import 'package:aavishkaar/Blogs/blog_lists.dart';
 import 'package:aavishkaar/landing_page.dart';
 import 'package:aavishkaar/Profile/Streaks/streak_widget.dart';
 import 'package:flutter/material.dart';
@@ -88,10 +89,11 @@ class _AdvancedDrawerContentState extends State<AdvancedDrawerContent> {
               child: ListView(
                 children: [
                   _buildListTile(Icons.home, 'Home',LandingPage()),
-                  _buildListTile(Icons.book_online_rounded, 'Billl',BillsListScreen()),
+                  _buildListTile(Icons.newspaper, 'Blogs',BlogLists()),
+                  _buildListTile(Icons.book_online_rounded, 'Bills',BillsListScreen()),
                   _buildListTile(Icons.sports, 'Contests',LandingPage()),
                   _buildListTile(Icons.event, 'Events',LandingPage()),
-                  _buildListTile(Icons.search, 'Resources',Article6Page()),
+                  _buildListTile(Icons.search, 'Shop',Article6Page()),
                 ],
               ),
             ),

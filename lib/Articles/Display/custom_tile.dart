@@ -70,7 +70,7 @@ class CustomArticleCard extends StatelessWidget {
                     ),
                   ),
 
-                  (isCompleted)? Icon(Icons.bookmark_added) : Icon(Icons.bookmark_outline_outlined),
+                  (isCompleted)? Icon(Icons.check_box) : Icon(Icons.check_box_outline_blank_outlined),
                 ],
               ),
               const SizedBox(height: 10),

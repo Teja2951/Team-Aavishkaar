@@ -64,7 +64,7 @@ class _ChatbotState extends State<Chatbot> {
   List<ChatMessage> messages = [];
 
   ChatUser currentUser = ChatUser(id: '0', firstName: 'You');
-  ChatUser geminiUser = ChatUser(id: '1', firstName: 'Gemini');
+  ChatUser geminiUser = ChatUser(id: '1', firstName: 'ChatSathi');
 
   final TextEditingController _textController = TextEditingController();
   @override
@@ -116,7 +116,7 @@ class _ChatbotState extends State<Chatbot> {
     gemini
         .streamGenerateContent(
           question,
-          modelName:  'tunedModels/constitutionqa-3-heh8llpv6zrw',  //'tunedModels/modifiedarticles-24rk5uxrc6i', // Use your fine-tuned model
+          //modelName:  //'tunedModels/constitutionqa-3-heh8llpv6zrw', //'tunedModels/constitutionqa-3-heh8llpv6zrw',  //'tunedModels/modifiedarticles-24rk5uxrc6i', // Use your fine-tuned model
           generationConfig: GenerationConfig(
             temperature: 1,
             topK: 40,

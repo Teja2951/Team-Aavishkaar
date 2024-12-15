@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:lottie/lottie.dart';
 import 'package:http/http.dart' as http;
@@ -398,9 +399,39 @@ void _showSettings() {
   );
 }
 
+final FlutterTts flutterTts = FlutterTts();
+bool _isSpeaking = false;
+
+Future<void> _speakText() async {
+  await flutterTts.setLanguage("en-IN"); // Set the desired language
+  await flutterTts.setPitch(1.0); // Set the pitch (default: 1.0)
+  await flutterTts.setSpeechRate(0.5); // Set the speech rate (default: 1.0)
+  setState(() {
+    _isSpeaking = true;
+  });
+  await flutterTts.speak(story); // Ensure `generatedText` is used here
+}
+
+Future<void> _stopSpeak() async {
+  await flutterTts.pause(); // Pause the TTS
+  setState(() {
+    _isSpeaking = false;
+  });
+}
+
 @override
 Widget build(BuildContext context) {
   return Scaffold(
+    floatingActionButton: FloatingActionButton(
+      onPressed: () {
+        if (_isSpeaking) {
+          _stopSpeak();
+        } else {
+          _speakText();
+        }
+      },
+      child: Icon(_isSpeaking ? Icons.pause : Icons.play_arrow),
+    ),
     body: Stack(
       children: [
         // Background

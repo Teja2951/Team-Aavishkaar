@@ -1,6 +1,14 @@
 import 'dart:math';
+import 'package:aavishkaar/Game_Screens/coins.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+class EmojisGameScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return EmojiGameScreen();
+  }
+}
 
 class EmojiGameScreen extends StatefulWidget {
   @override
@@ -11,12 +19,31 @@ class _EmojiGameScreenState extends State<EmojiGameScreen> {
   int score = 0;
   int currentIndex = 0;
 
-  // Sample list of emoji pairs and corresponding answers
   List<Map<String, dynamic>> emojiPairs = [
-    {'emojis': '🍕 + 🍔', 'answer': 'Fast Food'},
-    {'emojis': '🍎 + 🍌', 'answer': 'Fruits'},
-    {'emojis': '🐱 + 🐶', 'answer': 'Pets'},
-    {'emojis': '⚽ + 🏀', 'answer': 'Sports'},
+    {'emojisLink': '🍕 + 🍔', 'answer': 'Fast Food'},
+    {'emojisLink': '🍎 + 🍌', 'answer': 'Fruits'},
+    {'emojisLink': '🐱 + 🐶', 'answer': 'Pets'},
+    {'emojisLink': '⚽ + 🏀', 'answer': 'Sports'},
+    {'emojisLink': '🍕 + 🍔', 'answer': 'Fast Food'},
+    {'emojisLink': '🍎 + 🍌', 'answer': 'Fruits'},
+    {'emojisLink': '🐱 + 🐶', 'answer': 'Pets'},
+    {'emojisLink': '⚽ + 🏀', 'answer': 'Sports'},
+    {'emojisLink': '🍕 + 🍔', 'answer': 'Fast Food'},
+    {'emojisLink': '🍎 + 🍌', 'answer': 'Fruits'},
+    {'emojisLink': '🐱 + 🐶', 'answer': 'Pets'},
+    {'emojisLink': '⚽ + 🏀', 'answer': 'Sports'},
+    {'emojisLink': '🍕 + 🍔', 'answer': 'Fast Food'},
+    {'emojisLink': '🍎 + 🍌', 'answer': 'Fruits'},
+    {'emojisLink': '🐱 + 🐶', 'answer': 'Pets'},
+    {'emojisLink': '⚽ + 🏀', 'answer': 'Sports'},
+    {'emojisLink': '🍕 + 🍔', 'answer': 'Fast Food'},
+    {'emojisLink': '🍎 + 🍌', 'answer': 'Fruits'},
+    {'emojisLink': '🐱 + 🐶', 'answer': 'Pets'},
+    {'emojisLink': '⚽ + 🏀', 'answer': 'Sports'},
+    {'emojisLink': '🍕 + 🍔', 'answer': 'Fast Food'},
+    {'emojisLink': '🍎 + 🍌', 'answer': 'Fruits'},
+    {'emojisLink': '🐱 + 🐶', 'answer': 'Pets'},
+    {'emojisLink': '⚽ + 🏀', 'answer': 'Sports'},
     // Add more emoji pairs here
   ];
 
@@ -66,8 +93,11 @@ class _EmojiGameScreenState extends State<EmojiGameScreen> {
     });
   }
 
+  ScoreManager s = ScoreManager();
+
   // End game and navigate back to previous screen
   void _endGame() {
+    s.addScore(score);
     Navigator.pop(context);  // This will pop the current game screen and return to the previous screen
   }
 
@@ -96,10 +126,12 @@ class _EmojiGameScreenState extends State<EmojiGameScreen> {
             ),
             SizedBox(height: 20),
             // Display emoji pair
-            Text(
-              emojiPairs[currentIndex]['emojis'],
-              style: TextStyle(fontSize: 50),
-            ),
+            Image.network(emojiPairs[currentIndex]['emojisLink']),
+            // Text(
+            //   emojiPairs[currentIndex]['emojis'],
+            //   Image.network(emojiPairs[currentIndex]['emojis']),
+            //   style: TextStyle(fontSize: 50),
+            // ),
             SizedBox(height: 20),
             // Input field for user guess
             TextField(

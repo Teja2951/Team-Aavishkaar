@@ -1,9 +1,13 @@
+import 'package:aavishkaar/Articles/preamble.dart';
 import 'package:aavishkaar/Drawer/advance_drawer_content.dart';
 import 'package:aavishkaar/Articles/Bookmarks/bookmarks_screen.dart';
 import 'package:aavishkaar/Chatbot/chatbot2.dart';
 import 'package:aavishkaar/One_minute/news_intro.dart';
 import 'package:aavishkaar/Profile/Streaks/streak_service.dart';
+import 'package:aavishkaar/Timeline1/tim_Intro.dart';
+import 'package:aavishkaar/time1.dart';
 import 'package:aavishkaar/timeline.dart';
+import 'package:aavishkaar/Timeline1/timeline_screen.dart';
 import 'package:animate_gradient/animate_gradient.dart';
 import 'package:aavishkaar/Articles/Part6/article6_page.dart';
 import 'package:aavishkaar/Auth/auth_service.dart';
@@ -33,7 +37,8 @@ class _LandingPageState extends State<LandingPage> {
   final Map<String, Widget> articleScreens = {
     "Part 5": HomePage(),
     "Part 6": Article6Page(),
-    'Timeline': ConstitutionTimelineScreen(),
+    'Timeline': TimIntro(),
+    'Preamble': Preamble(),
   };
 
   late final List<Widget> _screens;
@@ -144,7 +149,7 @@ class _LandingPageState extends State<LandingPage> {
                 buildNavBarItem(Icons.home, 'Home', 0),
                 buildNavBarItem(Icons.gamepad, 'Games', 1),
                 const SizedBox(width: 20),
-                buildNavBarItem(Icons.new_label, 'OneM', 2),
+                buildNavBarItem(Icons.new_label, 'Civics Scroll', 2),
                 buildNavBarItem(Icons.more_horiz_rounded, 'More', 3),
               ],
             ),
@@ -170,7 +175,7 @@ class _LandingPageState extends State<LandingPage> {
               child: SizedBox(
                 width: 60,
                 height: 60,
-                child: Icon(Icons.mic, size: 28, color: Colors.white),
+                child: Icon(Icons.chat, size: 28, color: Colors.white),
               ),
             ),
           ),
@@ -272,7 +277,7 @@ class _LandingPageState extends State<LandingPage> {
                 top: 20,
                 child: Container(
                   height: 150,
-                  width: 325,
+                  width: 370, // 325
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     border: Border.all(
@@ -306,7 +311,7 @@ class _LandingPageState extends State<LandingPage> {
               ),
               Positioned(
                 top: -10,
-                left: 190,
+                left: 220,
                 child: Container(
                   height: 100,
                   width: 150,

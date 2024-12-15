@@ -1,3 +1,4 @@
+import 'package:aavishkaar/Game_Screens/coins.dart';
 import 'package:aavishkaar/landing_page.dart';
 import 'package:aavishkaar/Game_Screens/games_screen.dart';
 import 'package:aavishkaar/Game_Screens/quiz_materials/models/answer_button.dart';
@@ -136,15 +137,23 @@ class _QuizState extends State<Quiz> {
   }
 }
 
-class EndScreen extends StatelessWidget {
+class EndScreen extends StatefulWidget {
   final int correctAnswers;
   final int wrongAnswers;
 
   const EndScreen({super.key, required this.correctAnswers, required this.wrongAnswers});
 
   @override
+  State<EndScreen> createState() => _EndScreenState();
+}
+
+class _EndScreenState extends State<EndScreen> {
+
+  ScoreManager s = ScoreManager();
+  @override
   Widget build(BuildContext context) {
      void finishGame() {
+      s.addScore(widget.correctAnswers);
   Navigator.popUntil(context, (route) => route.isFirst); // Pops back to the LandingPage
   }
     return Scaffold(
@@ -160,11 +169,11 @@ class EndScreen extends StatelessWidget {
             ),
             SizedBox(height: 20),
             Text(
-              "Correct Answers: $correctAnswers",
+              "Correct Answers: ${widget.correctAnswers}",
               style: TextStyle(fontSize: 20, color: Colors.green),
             ),
             Text(
-              "Incorrect Answers: $wrongAnswers",
+              "Incorrect Answers: ${widget.wrongAnswers}",
               style: TextStyle(fontSize: 20, color: Colors.red),
             ),
             SizedBox(height: 40),

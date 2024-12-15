@@ -1,3 +1,4 @@
+import 'package:aavishkaar/Game_Screens/games_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:aavishkaar/Game_Screens/quiz_materials/quiz.dart';
 
@@ -18,6 +19,12 @@ class _TriviaSetupScreenState extends State<TriviaSetupScreen> {
         appBar: AppBar(
           title: const Text('Trivia Game Setup'),
           backgroundColor: const Color.fromARGB(255, 4, 62, 110),
+          leading: IconButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            icon: Icon(Icons.arrow_back)
+          ),
         ),
         body: Padding(
           padding: const EdgeInsets.all(20.0),

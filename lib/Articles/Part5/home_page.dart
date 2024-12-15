@@ -15,7 +15,7 @@ class _HomePageState extends State<HomePage> {
   String searchTerm = '';
   
   Stream<List<Map<String, dynamic>>> fetchArticlesStream() {
-    return supabase.from('articles').stream(primaryKey: ['id']);
+    return supabase.from('articles').stream(primaryKey: ['id']).order('article_no', ascending: true);
   }
 
 
@@ -79,9 +79,9 @@ class _HomePageState extends State<HomePage> {
               Container(
                 height: 200,
                 width: double.infinity,
+                child: Image.network('https://i.imghippo.com/files/KijU5492kB.png'),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.grey,
                 ),
               ),
               SizedBox(height: 20),

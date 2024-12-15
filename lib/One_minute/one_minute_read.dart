@@ -140,8 +140,6 @@ class NewsContainer extends StatelessWidget {
                       fontSize: 16,
                       color: Colors.black54,  // Subtle color for description
                     ),
-                    maxLines: 15,  // Limit to 4 lines
-                    overflow: TextOverflow.ellipsis,  // Prevent overflow
                   ),
                 ],
               ),

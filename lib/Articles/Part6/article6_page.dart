@@ -13,7 +13,7 @@ class Article6Page extends StatefulWidget {
 
 class _Article6PageState extends State<Article6Page> {
   final authService = AuthService();
-  final _stream = Supabase.instance.client.from('articles6').stream(primaryKey: ['id']);
+  final _stream = Supabase.instance.client.from('articles6').stream(primaryKey: ['id']).order('article_no', ascending: true);
   TextEditingController searchController = TextEditingController();
   String searchTerm = '';
 
@@ -84,11 +84,10 @@ class _Article6PageState extends State<Article6Page> {
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.grey,
                 ),
-                // Add an image if needed
-                // child: Image.network(
-                //   'https://img.freepik.com/free-vector/red-banner-design-white-background_1308-96833.jpg?semt=ais_hybrid',
-                //   fit: BoxFit.fill,
-                // ),
+                child: Image.network(
+                  'https://i.imghippo.com/files/aTob5923MkY.png',
+                  fit: BoxFit.fill,
+                ),
               ),
               SizedBox(height: 20),
               // Stream Builder for Articles
@@ -124,7 +123,7 @@ class _Article6PageState extends State<Article6Page> {
                         originalText: filteredArticles[index]['article_og_txt'] ?? 'No Original Text',
                         simplifiedText: filteredArticles[index]['article_sim_text'] ?? 'No Simplified Text',
                         part: filteredArticles[index]['part'] ?? '404',
-                        link: filteredArticles[index]['article_link'],
+                        link: 'na', // change the link
                         type: filteredArticles[index]['type'],
                         isCompleted: filteredArticles[index]['is_Completed'], // add the supabase columns
                       );

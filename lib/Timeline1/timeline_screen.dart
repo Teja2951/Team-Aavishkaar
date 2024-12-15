@@ -1,18 +1,19 @@
-import 'package:aavishkaar/timeline_data.dart';
-import 'package:aavishkaar/timeline_widget.dart';
+import 'package:aavishkaar/Timeline1/timeline_data.dart';
+import 'package:aavishkaar/Timeline1/timeline_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:lottie/lottie.dart';
 
 class TimelineScreen extends StatelessWidget {
-  const TimelineScreen({super.key});
+  final String name;
+  const TimelineScreen({super.key,required this.name});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: TypewriterAnimatedTextKit(
-          text: const ['Indian Constitution Timeline'],
+          text: [name],
           textStyle: const TextStyle(
             fontSize: 20.0,
             fontWeight: FontWeight.bold,

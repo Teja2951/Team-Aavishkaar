@@ -19,7 +19,8 @@ class BillsListScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bills List'),
+        title: const Text('Bills of 2024'),
+        centerTitle: true,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
@@ -60,7 +61,8 @@ class BillsListScreen extends StatelessWidget {
                 ministry: bill['ministry'] ?? 'No Ministry',
                 tag1:  bill['tag1']  ?? 'na',
                 tag2:  bill['tag2'] ?? 'na',
-                isCompleted: bill['isCompleted'], // Replace with logic if needed
+                isCompleted: bill['isCompleted'],
+                link: bill['pdf_url'],
                 onTap: () {
                   Navigator.push(
                     context,

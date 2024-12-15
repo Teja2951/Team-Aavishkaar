@@ -55,6 +55,8 @@ dependencies:
   flutter_advanced_drawer:
   timeline_tile: ^2.0.0
   animated_text_kit: ^4.2.2
+  syncfusion_flutter_pdfviewer: ^27.2.5
+  flutter_tts:
 
 dev_dependencies:
   flutter_test:
@@ -89,6 +91,9 @@ flutter:
     - assets/cross.png
     - assets/StoryLoad.json
     - assets/storySplash.json
+    - assets/preamble.jpg
+    - assets/game_banner.jpg
+    - assets/1.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

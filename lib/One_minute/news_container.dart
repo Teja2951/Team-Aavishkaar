@@ -24,7 +24,7 @@ class NewsContainer extends StatelessWidget {
             imageUrl,
             height: 400,
             width: MediaQuery.of(context).size.width,
-            fit: BoxFit.cover, // Ensures the image fits nicely
+            fit: BoxFit.cover,
           ),
           SizedBox(height: 20),
           Padding(
